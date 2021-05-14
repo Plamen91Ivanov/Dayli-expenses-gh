@@ -1,25 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
 
+import SearchAlgorithm from './components/SearchAlgorithm/SearchAlgorithm';
+import Pathfinding from './components/Pathfinding/Pathfinding';
+import Snake from './components/SnakeBot/Snake';
+
 function App() {
+  // return (
+  //   <div className="App">
+  //     <SearchAlgorithm></SearchAlgorithm>
+  //     <Pathfinding></Pathfinding>
+  //     <Snake></Snake>
+  //     <div className="card-container"></div>
+  //   </div>
+  // );
+  const [state, setState] = useState('start')
+
+  triggerAddTripState = () => {
+    setState('add-trip')
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and saveee to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {state === 'start' && (
+        <AddTripButton addTrip={this.triggerAddTripState} />
+      )}
+
+      {state === 'add-trip' && <AnotherComponent />}
     </div>
-  );
+  )
 }
 
 export default App;
